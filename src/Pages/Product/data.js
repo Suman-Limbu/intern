@@ -7,6 +7,13 @@ export const product = [
     stock: "20",
   },
    {
+    name: "OnePlus 15",
+    price: "Rs. 95000",
+    brand: "OnePlus",
+    Category: "smartphone",
+    stock: "12",
+  },
+   {
     name: "Iphone 15 Pro",
     price: "Rs. 125000",
     brand: "Apple",
@@ -33,5 +40,12 @@ export const product = [
     brand: "ASUS",
     Category: "Monitor",
     stock: "3",
+  },
+   {
+    name: "Redmi 15",
+    price: "Rs. 40000",
+    brand: "Redmi",
+    Category: "smartphone",
+    stock: "25",
   },
 ];
