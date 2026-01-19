@@ -2,7 +2,7 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import image from "../../assets/iphone.webp";
 
-const productCard = ({ product }) => {
+const productCard = ({ product ,onSelect}) => {
   return (
     <>
       <div className="flex items-center container mx-auto justify-center">
@@ -11,7 +11,7 @@ const productCard = ({ product }) => {
             className="bg-gray-500 w-80 h-60 m-2 rounded-lg cover ml-10"
             src={image}
           />
-          <h1 className="text-2xl px-4 font-semibold">{product.name}</h1>
+          <h1 className="text-2xl px-4 font-semibold" onClick={()=>onSelect(product)}>{product.name}</h1>
           <div className="flex items-center justify-between">
             <p className="font-bold text-cyan-900 text-3xl py-3 px-4">
               {product.price}

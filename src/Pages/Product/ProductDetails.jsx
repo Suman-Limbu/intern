@@ -3,10 +3,14 @@ import React from "react";
 import image from "../../assets/iphone.webp";
 import { FaStar } from "react-icons/fa";
 
-const ProductDetails = () => {
+const ProductDetails = ({product}) => {
+  //    if (!product) {
+  //   return <p className="mt-5">Click a product to see details</p>;
+  // }
   return (
     <> 
-   
+
+
   <div className=" container mx-auto ">
           <div className="flex justify-between">
             {/* first part */}
@@ -26,13 +30,13 @@ const ProductDetails = () => {
                 <FaStar />
               </div>
               <p className=" text-gray-400 mb-3">
-                Brand: <span className="text-blue-500 ">Apple </span>|
+                Brand: <span className="text-blue-500 ">{product.brand} </span>|
                 <span className="text-blue-500"> More mobiles from apple</span>
               </p>
               <hr className="text-gray-400" />
               <p className="text-orange-400 font-semibold text-3xl m-3 items-center ">
                 {" "}
-                Rs. 110,000
+                {product.price}
               </p>
               <hr className="text-gray-400" />
               <p className=" text-gray-500 my-3">
@@ -69,6 +73,7 @@ const ProductDetails = () => {
           {/* third part */}
           <div></div>
         </div>
+        
     </>
   );
 };
