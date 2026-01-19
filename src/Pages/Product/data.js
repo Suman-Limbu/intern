@@ -1,51 +1,58 @@
 export const product = [
   {
+    id: 1,
     name: "Iphone 15",
-    price: "Rs. 110000",
+    price: 110000,
     brand: "Apple",
     Category: "smartphone",
-    stock: "20",
+    stock: 20,
   },
-   {
+  {
+    id: 2,
     name: "OnePlus 15",
-    price: "Rs. 95000",
+    price: 95000,
     brand: "OnePlus",
     Category: "smartphone",
-    stock: "12",
+    stock: 12,
   },
-   {
+  {
+    id: 3,
     name: "Iphone 15 Pro",
-    price: "Rs. 125000",
+    price: 125000,
     brand: "Apple",
     Category: "smartphone",
-    stock: "13",
+    stock: 13,
   },
-   {
+  {
+    id: 4,
     name: "Lenovo Loq",
-    price: "Rs. 200000",
+    price: 200000,
     brand: "Lenovo",
     Category: "Laptop",
-    stock: "5",
+    stock: 5,
   },
-   {
+  {
+    id: 5,
     name: "ASUS ROG Strix G16 ",
     price: "Rs. 250000",
     brand: "ASUS",
     Category: "Laptop",
-    stock: "20",
+    stock: 20,
   },
-   {
+  {
+    id: 6,
     name: "ASUS Monitor",
-    price: "Rs. 50000",
+    price: 50000,
     brand: "ASUS",
     Category: "Monitor",
-    stock: "3",
+    stock: 3,
   },
-   {
+  {
+    id: 7,
     name: "Redmi 15",
-    price: "Rs. 40000",
+    price: 40000,
     brand: "Redmi",
     Category: "smartphone",
-    stock: "25",
+    stock: 25,
   },
 ];

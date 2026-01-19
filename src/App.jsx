@@ -5,6 +5,9 @@ import "./App.css"
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/home/Home";
 import Products from "./Pages/Product/Products";
+import MainContact  from "./Pages/contact/MainContact";
+import Blog from './Pages/Blogs/Blog';
+import AboutUs from './Pages/about/AboutUs';
 
 
 const App = () => {
@@ -14,10 +17,10 @@ const App = () => {
     {/* <div className="py-5"> <Products/></div> */}
     <Routes>
       <Route path="/" element={<Home/>}/>
-     < Route path="/about" element={<Home/>}/>
-     < Route path="/blogs" element={<Home/>}/>
+     < Route path="/about" element={<AboutUs/>}/>
+     < Route path="/blogs" element={<Blog/>}/>
       <Route path="/product" element={<Products/>}/>
-      <Route path="/contact" element={<Products/>}/>
+      <Route path="/contact" element={<MainContact/>}/>
     </Routes>
      <Footer/>
     </div>

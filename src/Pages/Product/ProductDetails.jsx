@@ -4,9 +4,9 @@ import image from "../../assets/iphone.webp";
 import { FaStar } from "react-icons/fa";
 
 const ProductDetails = ({product}) => {
-  //    if (!product) {
-  //   return <p className="mt-5">Click a product to see details</p>;
-  // }
+     if (!product) {
+    return <p className="mt-5">Click a product to see details</p>;
+  }
   return (
     <> 
 
