@@ -6,24 +6,44 @@ import { Link } from "react-router-dom";
 import FilterMenu from "./filterMenu";
 
 const Products = () => {
-  const [filterProducts, setFilterProducts] = useState(products);
+  const [showFilter, setShowFilter] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
-  const filterByBrand = (brand) => {
-    setFilterProducts(products.filter((item) => item.brand === brand));
+  const onBrand = (brand) => {
+    setFilteredProducts(products.filter((p) => p.brand === brand));
   };
-   const filterByPrice = (min, max) => {
-    setFilterProducts(products.filter((item) => item.price>=min && item.price<=max));
+
+  const onCategory = (category) => {
+    setFilteredProducts(products.filter((p) => p.category === category));
   };
-   const filterByCategory = (category) => {
-    setFilterProducts(products.filter((item) => item.category === category));
+
+  const onPrice = (min, max) => {
+    setFilteredProducts(
+      products.filter((p) => p.price >= min && p.price <= max),
+    );
   };
 
   return (
     <>
       <div>
-        <FilterMenu onBrand={filterByBrand} onPrice={filterByPrice} onCategory={filterByCategory} />
+        <button
+          onClick={() => setShowFilter(true)}
+          className="px-4 py-2 border rounded-lg font-medium"
+        >
+          Filter
+        </button>
+
+        {/* Filter Panel */}
+        {showFilter && (
+          <FilterMenu
+            onBrand={onBrand}
+            onCategory={onCategory}
+            onPrice={onPrice}
+            onClose={() => setShowFilter(false)}
+          />
+        )}
         <div className="grid grid-cols-3 gap-3 space-x-10">
-          {filterProducts.map((item, index) => (
+          {filteredProducts.map((item, index) => (
             <ProductCard key={index} product={item} />
           ))}
         </div>

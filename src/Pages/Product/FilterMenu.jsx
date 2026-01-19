@@ -1,47 +1,59 @@
-const FilterMenu = ({onBrand,onPrice,onCategory}) => {
+const FilterPanel = ({ onBrand, onCategory, onPrice, onClose }) => {
   return (
-    <div className="relative inline-block group">
-      {/* Filter Button */}
-      <button className="px-4 py-2 border rounded-lg font-medium">
-        Filter
-      </button>
+    <div className="fixed inset-0 bg-black/40 flex justify-end z-50">
+      
+      {/* Panel */}
+      <div className="bg-white w-72 h-full p-4">
+        {/* Header */}
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="font-semibold text-lg">Filters</h2>
+          <button onClick={onClose} className="text-xl">✕</button>
+        </div>
 
-      {/* Main Dropdown */}
-      <div className="absolute left-0 mt-2 hidden group-hover:block bg-white border rounded-lg shadow-lg w-40">
-        
         {/* Brand */}
-        <div className="relative group/brand px-3 py-2 hover:bg-gray-100">
-          Brand →
-          <div className="absolute left-full top-0 hidden group-hover/brand:block bg-white border rounded-lg shadow-lg w-32">
-            <p onClick={() => onBrand("Apple")} className="px-3 py-2 hover:bg-gray-100 cursor-pointer">Apple</p>
-            <p onClick={() => onBrand("Lenovo")} className="px-3 py-2 hover:bg-gray-100 cursor-pointer">Lenovo</p>
-            <p onClick={() => onBrand("ASUS")} className="px-3 py-2 hover:bg-gray-100 cursor-pointer">ASUS</p>
-          </div>
+        <div className="mb-4">
+          <h3 className="font-medium mb-2">Brand</h3>
+          {["Apple", "Lenovo", "ASUS"].map((b) => (
+            <p
+              key={b}
+              onClick={() => onBrand(b)}
+              className="cursor-pointer hover:underline"
+            >
+              {b}
+            </p>
+          ))}
         </div>
 
         {/* Category */}
-        <div className="relative group/category px-3 py-2 hover:bg-gray-100">
-          Category →
-          <div className="absolute left-full top-0 hidden group-hover/category:block bg-white border rounded-lg shadow-lg w-36">
-            <p onClick={() => onCategory("smartphone")} className="px-3 py-2 hover:bg-gray-100 cursor-pointer">smartphone</p>
-            <p onClick={() => onCategory("Laptop")} className="px-3 py-2 hover:bg-gray-100 cursor-pointer">laptop</p>
-            <p onClick={() => onCategory("Monitor")} className="px-3 py-2 hover:bg-gray-100 cursor-pointer">monitor</p>
-          </div>
+        <div className="mb-4">
+          <h3 className="font-medium mb-2">Category</h3>
+          {["smartphone", "Laptop", "Monitor"].map((c) => (
+            <p
+              key={c}
+              onClick={() => onCategory(c)}
+              className="cursor-pointer hover:underline"
+            >
+              {c}
+            </p>
+          ))}
         </div>
 
         {/* Price */}
-        <div className="relative group/price px-3 py-2 hover:bg-gray-100">
-          Price →
-          <div className="absolute left-full top-0 hidden group-hover/price:block bg-white border rounded-lg shadow-lg w-40">
-            <p onClick={() => onPrice(0, 50000)} className="px-3 py-2 hover:bg-gray-100 cursor-pointer">Below 50k</p>
-            <p onClick={() => onPrice(50000, 150000)} className="px-3 py-2 hover:bg-gray-100 cursor-pointer">50k – 1.5L</p>
-            <p onClick={() => onPrice(150000, 300000)} className="px-3 py-2 hover:bg-gray-100 cursor-pointer">Above 1.5L</p>
-          </div>
+        <div>
+          <h3 className="font-medium mb-2">Price</h3>
+          <p onClick={() => onPrice(0, 50000)} className="cursor-pointer hover:underline">
+            Below 50k
+          </p>
+          <p onClick={() => onPrice(50000, 150000)} className="cursor-pointer hover:underline">
+            50k – 1.5L
+          </p>
+          <p onClick={() => onPrice(150000, 300000)} className="cursor-pointer hover:underline">
+            Above 1.5L
+          </p>
         </div>
-
       </div>
     </div>
   );
 };
 
-export default FilterMenu;
+export default FilterPanel;

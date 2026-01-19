@@ -4,10 +4,9 @@ import { products } from "./data";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const product = products.find(u => u.id == id);
-    return (
+  const product = products.find((u) => u.id == id);
+  return (
     <>
-  
       <div className=" container mx-auto ">
         <div className="flex justify-between">
           <div className="">
@@ -26,12 +25,13 @@ const ProductDetails = () => {
               <FaStar />
             </div>
             <p className=" text-gray-400 mb-3">
-              Brand:{" "}
-              <span className="text-blue-500 ">{product?.brand}</span>|
+              Brand: <span className="text-blue-500 ">{product?.brand}</span>|
               <span className="text-blue-500"> More mobiles from apple</span>
             </p>
             <hr className="text-gray-400" />
-            <p className="text-orange-400 font-semibold text-3xl m-3 items-center ">{product?.price}</p>
+            <p className="text-orange-400 font-semibold text-3xl m-3 items-center ">
+              {product?.price}
+            </p>
             <hr className="text-gray-400" />
             <p className=" text-gray-500 my-3">
               Color Family{" "}
@@ -39,12 +39,12 @@ const ProductDetails = () => {
                 please select the option
               </span>
             </p>
-            {/* <div className="flex items-center m-2 w-15">
-              <img src={image} />
-              <img src={image} />
-              <img src={image} />
-              <img src={image} />
-            </div> */}
+            <div className="flex items-center m-2 w-15">
+              <img src={product?.image} />
+              <img src={product?.image} />
+              <img src={product?.image} />
+              <img src={product?.image} />
+            </div>
             <p className=" text-gray-500 pt-3">
               RAM Memory
               <span className="text-black font-semibold pl-3">6GB</span>

@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const productCard = ({product}) =>{
+const productCard = ({ product }) => {
   const navigate = useNavigate();
 
   return (
@@ -25,7 +25,9 @@ const productCard = ({product}) =>{
             <p className="font-bold text-cyan-900 text-3xl py-3 px-4">
               Rs. {product.price}
             </p>
-            <span className="bg-blue-300 px-2 py-0.5 rounded-lg">{product.brand}</span>
+            <span className="bg-blue-300 px-2 py-0.5 rounded-lg">
+              {product.brand}
+            </span>
 
             <div className="flex mr-8 gap-1">
               <FaStar className="text-yellow-300" />
