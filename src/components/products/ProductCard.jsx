@@ -8,7 +8,7 @@ const productCard = ({ product }) => {
 
   return (
     <>
-      <div className="flex flex-col  justify-between items-center bg-gradient-to-r from-gray-500 to-gray-300 rounded-lg ">
+      <div className="flex flex-col  justify-between items-center bg-gradient-to-r from-green-200 to-blue-300 rounded-lg ">
         {/* <img src={product.image} className="w-75 mt-4"/> 
        
         <div className="flex flex-col justify-between">

@@ -28,7 +28,7 @@ const Products = () => {
       <div>
         <button
           onClick={() => setShowFilter(true)}
-          className="px-4 py-2 border rounded-lg font-semibold bg-amber-400 hover:shadow-md"
+          className="px-4 py-2 border rounded-lg font-semibold bg-green-400 hover:shadow-md"
         >
           Filter
         </button>

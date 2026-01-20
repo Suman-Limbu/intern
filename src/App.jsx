@@ -1,5 +1,5 @@
 
-import Header from "./components/Header";
+import Header from "./components/Header/Navbar";
 import Footer from "./components/Footer";
 import "./App.css"
 import { Route, Routes } from "react-router-dom";
@@ -14,8 +14,6 @@ import ProductDetails from "./components/products/ProductDetails";
 const App = () => {
   return (
    <>
-     
-
     <Header/>
     <Routes>
       <Route path="/" element={<Home/>}/>

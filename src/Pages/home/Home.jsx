@@ -1,15 +1,17 @@
 import React from 'react'
+import image from "../../assets/resumeai.png"
+import Button from "../../components/Ui/Button"
+import HeroSection from '../../components/Mainlayout/HeroSection'
+import WhySection from '../../components/Mainlayout/WhySection'
 
 const Home = () => {
   return (
-   <div className="min-h-screen ">
-
-  <div className="h-60 bg-gradient-to-r from-green-600 to-blue-400">
-       <h1 className="text-3xl font-bold text-blue-400">Looking For Online Electronic Products</h1>
-     <p className="text-3xl font-bold text-green-300">Find best electronic products with best prices </p>
-
-  </div>
-   </div>
+<>
+ <div className="min-h-screen">
+ <HeroSection/>
+  <WhySection/>
+ </div>
+  </>
   )
 }
 
