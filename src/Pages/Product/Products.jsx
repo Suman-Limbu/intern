@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ProductCard from "./ProductCard";
-import ProductDetails from "./ProductDetails";
+import ProductCard from "../../components/products/ProductCard";
+import ProductDetails from "../../components/products/ProductDetails";
 import { products } from "./data";
 import { Link } from "react-router-dom";
-import FilterMenu from "./filterMenu";
+import FilterMenu from "../../components/products/ProductFilter";
 
 const Products = () => {
   const [showFilter, setShowFilter] = useState(false);
@@ -28,7 +28,7 @@ const Products = () => {
       <div>
         <button
           onClick={() => setShowFilter(true)}
-          className="px-4 py-2 border rounded-lg font-medium"
+          className="px-4 py-2 border rounded-lg font-semibold bg-amber-400 hover:shadow-md"
         >
           Filter
         </button>
@@ -42,10 +42,12 @@ const Products = () => {
             onClose={() => setShowFilter(false)}
           />
         )}
-        <div className="grid grid-cols-3 gap-3 space-x-10">
+        <div className="container mx-auto px-3 py-2">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
           {filteredProducts.map((item, index) => (
             <ProductCard key={index} product={item} />
           ))}
+        </div>
         </div>
       </div>
     </>

@@ -6,13 +6,13 @@ const FilterPanel = ({ onBrand, onCategory, onPrice, onClose }) => {
       <div className="bg-white w-72 h-full p-4">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
-          <h2 className="font-semibold text-lg">Filters</h2>
-          <button onClick={onClose} className="text-xl">✕</button>
+          <h2 className="font-bold text-lg text-amber-500">Filters</h2>
+          <button onClick={onClose} className="text-xl hover:bg-amber-400 transition">✕</button>
         </div>
 
         {/* Brand */}
         <div className="mb-4">
-          <h3 className="font-medium mb-2">Brand</h3>
+          <h3 className="font-medium mb-2 text-blue-600">Brand</h3>
           {["Apple", "Lenovo", "ASUS"].map((b) => (
             <p
               key={b}
@@ -26,7 +26,7 @@ const FilterPanel = ({ onBrand, onCategory, onPrice, onClose }) => {
 
         {/* Category */}
         <div className="mb-4">
-          <h3 className="font-medium mb-2">Category</h3>
+          <h3 className="font-medium mb-2 text-blue-600">Category</h3>
           {["smartphone", "Laptop", "Monitor"].map((c) => (
             <p
               key={c}
@@ -40,7 +40,7 @@ const FilterPanel = ({ onBrand, onCategory, onPrice, onClose }) => {
 
         {/* Price */}
         <div>
-          <h3 className="font-medium mb-2">Price</h3>
+          <h3 className="font-medium mb-2 text-blue-600">Price</h3>
           <p onClick={() => onPrice(0, 50000)} className="cursor-pointer hover:underline">
             Below 50k
           </p>

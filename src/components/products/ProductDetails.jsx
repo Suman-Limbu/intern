@@ -1,6 +1,6 @@
 import { FaStar } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-import { products } from "./data";
+import { products } from "../../Pages/Product/data";
 
 const ProductDetails = () => {
   const { id } = useParams();
