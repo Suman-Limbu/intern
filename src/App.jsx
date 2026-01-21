@@ -12,6 +12,7 @@ import Dashboard from "./Pages/admin/Dashboard";
 import Unauthorized from "./Pages/auth/Unauthorized";
 import Login from "./Pages/auth/Login";
 import Register from "./Pages/auth/Register";
+import Auth from "./Pages/auth/Auth";
 import { useEffect } from "react";
 
 const App = () => {
@@ -37,13 +38,15 @@ const App = () => {
           path="/dashboard"
           element={
             <Roles allowedRoles={["admin"]}>
-              <Dashboard />
+            <Dashboard />
             </Roles>
           }
         />
         <Route path="/unauthorized" element={<Unauthorized />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route element={<Auth />}>
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
       </Routes>
     </>
   );
