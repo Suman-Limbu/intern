@@ -1,11 +1,11 @@
 import React from "react";
 import image from "../../assets/resumeai.png";
-import Button from "../Ui/Button";
+import Button from "../../components/Ui/Button";
 import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
     
-      <div className="container mx-auto ">
+      <div className="container mx-auto bg-slate-300">
         <div className="h-118 bg-gradient-to-r from-green-600 to-blue-400  px-14 ">
           <div className="flex justify-between items-center pt-15">
             <div>
@@ -17,7 +17,7 @@ const HeroSection = () => {
             </p>
           </div>
           <div className="mr-25">
-            <img src={image} className="cover w-85 " />
+            <img src={image} className="cover w-110 ml-10 " />
           </div>
           </div>
         <Link to="/products">  <Button text="ShopNow"/></Link>
