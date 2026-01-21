@@ -6,10 +6,10 @@ const Auth = () => {
   return (<>
   <div>auth shsjsjsjjsjsjsjsjsjsjsjsj</div>
   <h1> hlellsoos</h1>
-   
+  
   <Outlet/>
   </>
-    
+ 
   )
 }
 

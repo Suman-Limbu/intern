@@ -20,7 +20,7 @@ const App = () => {
     const mockUser = {
       name: "Sameer",
       isAuthenticated: true,
-      role: "admin",
+      role: "user",
     };
     localStorage.setItem("user", JSON.stringify(mockUser));
   }, []);
@@ -38,7 +38,7 @@ const App = () => {
           path="/dashboard"
           element={
             <Roles allowedRoles={["admin"]}>
-            <Dashboard />
+              <Dashboard />
             </Roles>
           }
         />
