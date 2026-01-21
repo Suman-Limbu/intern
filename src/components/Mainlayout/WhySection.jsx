@@ -1,3 +1,4 @@
+import { Check, CreditCard, RotateCcw, Van } from 'lucide-react';
 import React from 'react'
 
 const WhySection = () => {
@@ -8,22 +9,26 @@ const WhySection = () => {
     <p className="text-2xl pt-3 text-gray-500">We provide the best shopping experience with our premium quality products.</p>
    </div>
   <div className="container mx-auto px-5">
-     <div className="flex justify-between space-x-4 pt-8">
-   <div className="bg-gray-300 rounded-md">
+     <div className="grid grid-cols-4 space-x-4 pt-8 ">
+   <div className="bg-gray-300 rounded-md  hover:shadow-lg  flex flex-col justify-center items-center">
+     <p className="pb-3"><Check/></p>
      <h1 className="text-2xl font-semibold pb-3">Quality Products</h1>
-    <p>We provide only the best quality products from the trusted suppliers.</p>
+    <p className="pl-6">We provide only the best quality products from the trusted suppliers.</p>
    </div>
-    <div className="bg-gray-300 rounded-md">
+    <div className="bg-gray-300 rounded-md hover:shadow-lg flex flex-col justify-center items-center">
+      <p className="pb-3"><Van /></p>
      <h1 className="text-2xl font-semibold pb-3">Fast Delivery</h1>
     <p>Get your orders delivered in your record time.</p>
    </div>
-    <div className="bg-gray-300 rounded-md">
-     <h1 className="text-2xl font-semibold pb-3">Quality Products</h1>
-    <p>We provide only the best quality products from the trusted suppliers.</p>
+    <div className="bg-gray-300 rounded-md hover:shadow-lg  flex flex-col justify-center items-center">
+     <p className="pb-3"><RotateCcw /></p>
+     <h1 className="text-2xl font-semibold pb-3">Easy Return</h1>
+    <p>No need to hustle for returning your products if not upto your expectations.</p>
    </div>
-    <div className="bg-gray-300 rounded-md">
-     <h1 className="text-2xl font-semibold pb-3">Quality Products</h1>
-    <p>We provide only the best quality products from the trusted suppliers.</p>
+    <div className="bg-gray-300 rounded-md hover:shadow-lg flex flex-col justify-center items-center">
+      <p className="pb-3"><CreditCard /></p>
+     <h1 className="text-2xl font-semibold pb-3">Secure Payment</h1>
+    <p>Shop with confidence using your secure payment methods and also with multiple payment options.</p>
    </div>
    </div>
   </div>
