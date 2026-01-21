@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { FaCartShopping } from "react-icons/fa6";
 import Logo from './Logo';
-const Header = () => {
+const NavBar = () => {
   return (
     <>
     <div className="container mx-auto py-3 px-7 shadow ">
@@ -28,4 +28,4 @@ const Header = () => {
   )
 }
 
-export default Header;
+export default NavBar;
