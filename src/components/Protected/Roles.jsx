@@ -1,9 +1,9 @@
 import { Navigate } from "react-router-dom";
 
-const Roles = ({ children, allowedRoles }) => {
+const Roles = ({ allowedRoles, children }) => {
   const user = JSON.parse(localStorage.getItem("user"));
 
-  if (!user|| !user.isAuthenticated) {
+  if (!user || !user.isAuthenticated) {
     return <Navigate to="/login" />;
   }
 
