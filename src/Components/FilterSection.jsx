@@ -14,7 +14,7 @@ const FilterSection = ({
   setShowFilter,
   suggestion,
 }) => {
-  console.log(suggestion);
+  
   return (
     <>
       <div className="bg-blue-200 shadow-md rounded-md py-3 px-2 w-[270px] h-[350px] gap-3">
@@ -35,13 +35,15 @@ const FilterSection = ({
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          {suggestion && (
-            <ul>
-              {suggestion.map((s) => (
-                <li onClick={()=>setSearch(s)}>{s}</li>
+         <div className="bg-white rounded ">
+           {suggestion && (
+            <ul className="">
+              {suggestion.map((s,idx) => (
+                <li key={idx} className=" border" onClick={()=>setSearch(s)}>{s}</li>
               ))}
             </ul>
           )}
+         </div>
         </div>
         <div>
           <p className=" font-semibold text-red-600 ">Category</p>
@@ -63,8 +65,16 @@ const FilterSection = ({
           </p>
           <input
             placeholder="enter price"
-            type="range"
+            type="number"
             min={0}
+            
+            value={price[0]}
+            onChange={(e) => setPrice([Number(e.target.value),price[1]])}
+          />
+            <input
+            placeholder="enter price"
+            type="number"
+            
             max={5000}
             value={price[1]}
             onChange={(e) => setPrice([price[0], Number(e.target.value)])}

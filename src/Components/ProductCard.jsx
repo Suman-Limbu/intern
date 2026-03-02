@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const ProductCard = ({  title, brand, category, price, image }) => {
+const ProductCard = ({ id, title, brand, category, price, image }) => {
+  const navigate=useNavigate();
+  const [itemCart,setItemCard]=useState([]);
   return (
     <>
       <div className="bg-yellow-200 w-[300px] h-[300px] rounded-lg shadow-lg py-3 px-5">
@@ -9,6 +12,7 @@ const ProductCard = ({  title, brand, category, price, image }) => {
         <span>{price}</span>
         <span>{brand}</span>
         <span>{category}</span>
+        <button className="px-3 py-2 bg-red-500 rounded" onClick={()=>navigate("/cart")}>Add to cart</button>
       </div>
     </>
   );

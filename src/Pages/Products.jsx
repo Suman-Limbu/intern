@@ -27,13 +27,13 @@ const Products = () => {
     return ["all", ...new Set(products.map((p) => p.category))];
   }, [products]);
   const suggestion = useMemo(() => {
-if(search.length>0){
+    if (search.length > 0) {
       return products
-      .filter((itm) => itm.title.toLowerCase().includes(search.toLowerCase()))
-      .map((itm) => itm.title)
-      .slice(0, 5);
-}
-  }, [products,search]);
+        .filter((itm) => itm.title.toLowerCase().includes(search.toLowerCase()))
+        .map((itm) => itm.title)
+        .slice(0, 5);
+    }
+  }, [products, search]);
 
   const filterProducts = useMemo(() => {
     let result = [...products];
@@ -96,6 +96,7 @@ if(search.length>0){
         {filterProducts.map((itm) => (
           <div key={itm.id}>
             <ProductCard
+              id={itm.id}
               brand={itm.brand}
               title={itm.title}
               price={itm.price}
