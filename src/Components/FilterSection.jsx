@@ -3,87 +3,48 @@ import React from "react";
 const FilterSection = ({
   search,
   setSearch,
-  categories,
-  category,
-  setCategory,
   price,
   setPrice,
-  sort,
-  setSort,
-  showFilter,
-  setShowFilter,
+  showCategory,
+  setShowCategory,
   suggestion,
+  products,
 }) => {
-  
+  const categories = ["All", ...new Set(products.map((itm) => itm.category))];
+
   return (
     <>
       <div className="bg-blue-200 shadow-md rounded-md py-3 px-2 w-[270px] h-[350px] gap-3">
-        <button
-          className="cursor-pointer"
-          onClick={() => setShowFilter(!showFilter)}
-        >
-          x
-        </button>
-        <h1 className="text-orange-400 font-bold text-2xl text-center ">
-          Filters
-        </h1>
-        <p className=" font-semibold text-red-600 ">Search</p>
-        <div>
+        <div className=" gap-6  items-center ">
           <input
-            placeholder={"enter title"}
-            type={"text"}
+            type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            className="border border-amber-300"
           />
-         <div className="bg-white rounded ">
-           {suggestion && (
-            <ul className="">
-              {suggestion.map((s,idx) => (
-                <li key={idx} className=" border" onClick={()=>setSearch(s)}>{s}</li>
-              ))}
-            </ul>
-          )}
-         </div>
-        </div>
-        <div>
-          <p className=" font-semibold text-red-600 ">Category</p>
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            {categories.map((itm, idx) => (
-              <option key={idx} value={itm}>
-                {itm}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <h1 className=" font-semibold text-red-600 ">Price</h1>
-          <p>
-            Price Range: ${price[0]}-${price[1]}
-          </p>
+          <div className="bg-red-500  ">{suggestion}</div>
+
           <input
-            placeholder="enter price"
             type="number"
             min={0}
-            
             value={price[0]}
-            onChange={(e) => setPrice([Number(e.target.value),price[1]])}
+            onChange={(e) => setPrice([e.target.value, price[1]])}
+            className="border border-amber-300"
           />
-            <input
-            placeholder="enter price"
+          <input
             type="number"
-            
             max={5000}
             value={price[1]}
-            onChange={(e) => setPrice([price[0], Number(e.target.value)])}
+            onChange={(e) => setPrice([price[0], e.target.value])}
+            className="border border-amber-300"
           />
-          <h1 className=" font-semibold text-red-600 ">Sort</h1>
-          <select value={sort} onChange={(e) => setSort(e.target.value)}>
-            <option value={""}>None</option>
-            <option value={"low"}>Low</option>
-            <option value={"high"}>High</option>
+          <select
+            value={showCategory}
+            onChange={(e) => setShowCategory(e.target.value)}
+          >
+            {categories.map((itm) => (
+              <option value={itm}>{itm}</option>
+            ))}
           </select>
         </div>
       </div>

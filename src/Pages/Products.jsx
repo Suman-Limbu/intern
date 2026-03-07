@@ -6,26 +6,28 @@ import FilterSection from "../Components/FilterSection";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("all");
-  const [price, setPrice] = useState([0, 5000]);
-  const [sort, setSort] = useState("");
   const [showFilter, setShowFilter] = useState(false);
+  const [price, setPrice] = useState([0, 5000]);
+  const [showCategory, setShowCategory] = useState("All");
 
   useEffect(() => {
-    try {
-      const fetchProducts = async () => {
-        const res = await axios.get("https://fakestoreapi.com/products");
-        setProducts(res.data);
-      };
-      fetchProducts();
-    } catch (error) {
-      console.log(error);
-    }
+    const fetchProducts = async () => {
+      const res = await axios.get("https://fakestoreapi.com/products");
+      setProducts(res.data);
+    };
+    fetchProducts();
   }, []);
 
-  const categories = useMemo(() => {
-    return ["all", ...new Set(products.map((p) => p.category))];
-  }, [products]);
+  const filteredProducts = useMemo(() => {
+    return products.filter(
+      (itm) =>
+        itm.title.toLowerCase().includes(search.toLowerCase()) &&
+        itm.price >= price[0] &&
+        itm.price <= price[1] &&
+        (showCategory === "All" || itm.category === showCategory),
+    );
+  }, [products, search, price, showCategory]);
+
   const suggestion = useMemo(() => {
     if (search.length > 0) {
       return products
@@ -33,75 +35,37 @@ const Products = () => {
         .map((itm) => itm.title)
         .slice(0, 5);
     }
-  }, [products, search]);
+  }, [search, products]);
 
-  const filterProducts = useMemo(() => {
-    let result = [...products];
-    if (search.length > 0) {
-      result = result.filter((itm) =>
-        itm.title.toLowerCase().includes(search.toLowerCase()),
-      );
-    }
-
-    if (category !== "all") {
-      result = result.filter((itm) => itm.category === category);
-    }
-
-    if (price.length > 0) {
-      result = result.filter(
-        (itm) => itm.price >= price[0] && itm.price <= price[1],
-      );
-    }
-    if (sort.length > 0) {
-      if (sort == "low") {
-        result = result.sort((a, b) => a.price - b.price);
-      }
-      if (sort == "high") {
-        result = result.sort((a, b) => b.price - a.price);
-      }
-    }
-    return result;
-  }, [products, search, category, price, sort]);
   return (
     <>
-      {!showFilter && (
-        <button
-          onClick={() => setShowFilter(!showFilter)}
-          className="bg-blue-200 rounded cursor-pointer"
-        >
-          Filter
-        </button>
+      {showFilter && (
+        <div>
+          <FilterSection
+            search={search}
+            setSearch={setSearch}
+            price={price}
+            setPrice={setPrice}
+            setShowCategory={setShowCategory}
+            showCategory={showCategory}
+            suggestion={suggestion}
+            products={products}
+          />
+        </div>
       )}
-      <div>
-        {showFilter && (
-          <div>
-            <FilterSection
-              search={search}
-              setSearch={setSearch}
-              categories={categories}
-              category={category}
-              setCategory={setCategory}
-              price={price}
-              setPrice={setPrice}
-              sort={sort}
-              setSort={setSort}
-              showFilter={showFilter}
-              setShowFilter={setShowFilter}
-              suggestion={suggestion}
-            />
-          </div>
-        )}
-      </div>
-      <div className=" max-w-7xl mx-auto grid grid-cols-4 gap-6 mt-6">
-        {filterProducts.map((itm) => (
-          <div key={itm.id}>
+      {!showFilter && (
+        <button onClick={() => setShowFilter(!showFilter)}>Filter</button>
+      )}
+      <div className="max-w-7xl mx-auto grid grid-cols-3 gap-6 mt-8">
+        {filteredProducts.map((itm, idx) => (
+          <div key={idx}>
             <ProductCard
               id={itm.id}
-              brand={itm.brand}
               title={itm.title}
               price={itm.price}
-              category={itm.category}
+              brand={itm.brand}
               image={itm.image}
+              category={itm.category}
             />
           </div>
         ))}
