@@ -22,7 +22,11 @@ const FilterSection = ({
             onChange={(e) => setSearch(e.target.value)}
             className="border border-amber-300"
           />
-          <div className="bg-red-500  ">{suggestion}</div>
+          <div className="bg-red-500">
+            {suggestion.map((itm) => (
+              <div onClick={() => setSearch(itm)}>{itm}</div>
+            ))}
+          </div>
 
           <input
             type="number"
