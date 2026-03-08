@@ -7,10 +7,15 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("backend url/login", { email, password });
+      const res = await axios.post("http://localhost/5000/login", {
+        email,
+        password,
+      });
       const { token, user } = res.data;
+      console.log(token);
       localStorage.setItem("token", token);
-      localStorage.setItem("user", user.role);
+      localStorage.setItem("role", user.role);
+      alert("Login successful!");
     } catch (err) {
       console.log(err);
     }
