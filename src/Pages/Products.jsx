@@ -35,6 +35,7 @@ const Products = () => {
         .map((itm) => itm.title)
         .slice(0, 5);
     }
+    return [];
   }, [search, products]);
 
   return (
