@@ -1,7 +1,3 @@
-const SkeletonCard = () => (
-<div>
-  loading....
-  </div>
-);
+const SkeletonCard = () => <div>loading....</div>;
 
 export default SkeletonCard;

@@ -7,6 +7,9 @@ export const CartProvider = ({ children }) => {
     if (action.type === "add") {
       return [...state, action.payload];
     }
+    if (action.type === "remove") {
+      return state.filter((itm) => itm.id !== action.payload);
+    }
     return state;
   };
   const [cart, dispatch] = useReducer(reducer, []);
@@ -14,8 +17,13 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     dispatch({ type: "add", payload: product });
   };
+  const removeFromCart = (id) => {
+    dispatch({ type: "remove", payload: id });
+  };
   return (
-    <CartContext.Provider value={{addToCart}}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ addToCart, cart, removeFromCart }}>
+      {children}
+    </CartContext.Provider>
   );
 };
 export const useCart = () => useContext(CartContext);

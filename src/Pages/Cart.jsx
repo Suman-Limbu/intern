@@ -1,22 +1,23 @@
-import React, { useReducer } from "react";
+import React from "react";
 import { useCart } from "../context/CartContext";
 
 const Cart = () => {
-  const reducer = (count, action) => {
-    if (action.type === "Inc") {
-      return count + 1;
-    }
-    if (action.type === "Dec") {
-      return count - 1;
-    }
-  };
-  const [count, dispatch] = useReducer(reducer, 0);
-const cart=useCart();
+  const { cart ,removeFromCart} = useCart();
+const handleRemove=(id)=>{
+removeFromCart(id)
+}
   return (
-    <>{count}
-    {cart}
-      <button onClick={() => dispatch({ type: "Inc" })}>Inc</button>
-      <button onClick={() => dispatch({ type: "Dec" })}>Dec</button>
+   <>
+    <div>
+      {cart.map((itm) => (
+        <div key={itm.id}>
+          <h3>{itm.title}</h3>
+          <p>{itm.price}</p>
+          <button onClick={()=>handleRemove(itm.id)}>Remove</button>
+        </div>
+      ))}
+    </div>
+   
     </>
   );
 };
