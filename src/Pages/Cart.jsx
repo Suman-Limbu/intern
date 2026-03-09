@@ -15,7 +15,12 @@ const Cart = () => {
               <div key={itm.id}>
                 <h3>{itm.title}</h3>
                 <p>{itm.price}</p>
-                <button onClick={() => handleRemove(itm.id)}>Remove</button>
+                <button
+                  className="bg-red-500/60 hover:bg-red-500 rounded-md "
+                  onClick={() => handleRemove(itm.id)}
+                >
+                  Remove
+                </button>
               </div>
             ))}
           </div>
