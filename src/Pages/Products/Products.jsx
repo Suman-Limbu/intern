@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useMemo, useState } from "react";
-import ProductCard from "../Components/ProductCard";
-import FilterSection from "../Components/FilterSection";
+import ProductCard from "../../Components/ProductCard";
+import FilterSection from "../../Components/FilterSection";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
